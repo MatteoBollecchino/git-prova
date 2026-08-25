@@ -16,6 +16,7 @@
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
     <junit.version>4.13.2</junit.version>
+    <coveralls.version>5.0.0</coveralls.version>
   </properties>
 
   <dependencies>
@@ -26,4 +27,29 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>com.github.hazendaz.maven</groupId>
+          <artifactId>coveralls-maven-plugin</artifactId>
+          <version>${coveralls.version}</version>
+          <configuration>
+            <repoToken>${env.COVERALLS_REPO_TOKEN}</repoToken>
+        </configuration>
+        </plugin>
+        
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.1</version>
+          <configuration>
+            <source>${maven.compiler.source}</source>
+            <target>${maven.compiler.target}</target>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement> 
+  </build>
+  
 </project>
