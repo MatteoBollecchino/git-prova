@@ -15,5 +15,6 @@ public class App
         System.out.println( "ahhhhhh" );
         System.out.println( "Hi" );
         System.out.println( "Ciao" );
+        System.out.println( "Nuova stampa" );
     }
 }
