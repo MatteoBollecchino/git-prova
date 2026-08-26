@@ -20,6 +20,8 @@
     <mockito.version>5.23.0</mockito.version>
     <mysql.version>26.7.0</mysql.version>
     <coveralls.version>5.0.0</coveralls.version>
+    
+    <sonar.organization>matteobollecchino</sonar.organization>
   </properties>
 
   <dependencies>
