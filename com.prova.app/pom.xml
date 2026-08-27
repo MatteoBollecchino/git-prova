@@ -12,7 +12,6 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <!-- Change the Java compilation level to 11 -->
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
     <maven.compiler.version>3.1</maven.compiler.version>
@@ -86,9 +85,7 @@
           <executions>
             <execution>
               <goals>
-                <!-- binds by default to the phase "initialize" -->
                 <goal>prepare-agent</goal>
-                <!-- binds by default to the phase "verify" -->
                 <goal>report</goal>
               </goals>
             </execution>
@@ -105,7 +102,6 @@
         <build>
           <plugins>
             <plugin>
-              <!-- configured in pluginManagement -->
               <groupId>org.jacoco</groupId>
               <artifactId>jacoco-maven-plugin</artifactId>
             </plugin>
@@ -118,13 +114,10 @@
           <build>
             <plugins>
               <plugin>
-                <!-- configured in pluginManagement -->
-                <!-- JaCoCo report is required by coveralls-maven-plugin -->
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
               </plugin>
               <plugin>
-                <!-- configured in pluginManagement -->
                 <groupId>com.github.hazendaz.maven</groupId>
                 <artifactId>coveralls-maven-plugin</artifactId>
                 <executions>
