@@ -3,6 +3,5 @@
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=adonix-org_badges)](https://sonarcloud.io/summary/new_code?id=adonix-org_badges)
 [![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-light.svg)](https://sonarcloud.io/summary/new_code?id=adonix-org_badges)
 [![Quality gate status](https://sonarcloud.io/api/project_badges/measure?project=adonix-org_badges&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=adonix-org_badges)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=adonix-org_badges&metric=coverage)](https://sonarcloud.io/summary/new_code?id=adonix-org_badges)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=adonix-org_badges&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=adonix-org_badges)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=adonix-org_badges&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=adonix-org_badges)
