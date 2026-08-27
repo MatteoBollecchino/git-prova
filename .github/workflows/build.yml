@@ -52,4 +52,6 @@ jobs:
         name: surefire-report-jdk-${{ matrix.java }}
         path: '**/target/reports'
     - name: Build and analyze
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=MatteoBollecchino_git-prova
+      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=MatteoBollecchino_git-prova
+      working-directory: ${{ env.workdir }}
+      if: ${{ env.SONAR_TOKEN && matrix.java == 17 }}
