@@ -19,7 +19,7 @@
     <mockito.version>5.23.0</mockito.version>
     <mysql.version>26.7.0</mysql.version>
     <mysql.testcontainer.version>1.21.4</mysql.testcontainer.version>
-    <coveralls.version>5.0.0</coveralls.version>
+    <coveralls.version>5.1.0</coveralls.version>
     <surefire.report.version>3.6.3</surefire.report.version>
     <jacoco.version>0.8.14</jacoco.version>
     
