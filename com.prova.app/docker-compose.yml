@@ -2,28 +2,40 @@ version: "2.1"
 
 services:
   app:
-    image: java-mongo-hello-world
+    image: prova-app  # Modificato con un nome rappresentativo per il tuo progetto "com.prova.app"
     depends_on:
       db:
         condition: service_healthy
     networks:
       - my-network
+    # Best practice: inietta le credenziali di connessione come variabili d'ambiente 
+    # all'applicazione per evitare di scriverle in chiaro nel codice 
+    environment:
+      - DB_HOST=mysql-db
+      - DB_PORT=3306
+      - DB_NAME=prova_db
+      - DB_USER=prova_user
+      - DB_PASSWORD=prova_pass
 
   db:
-    image: mongo:5
+    image: mysql:8.0 
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_secure_password
+      - MYSQL_DATABASE=prova_db
+      - MYSQL_USER=prova_user
+      - MYSQL_PASSWORD=prova_pass
+    ports:
+      - "3306:3306"  # Espone la porta di default di MySQL per consentire l'esecuzione dei test da Eclipse
     networks:
       my-network:
         aliases:
-          - mongodb
+          - mysql-db  # Alias DNS per consentire la comunicazione interna tra i container
     healthcheck:
-      test:
-        ["CMD", "mongo", "--quiet",
-        "--host", "127.0.0.1", "--port", "27017", "admin",
-        "--eval", "quit(db.runCommand({ ping: 1 }).ok ? 0 : 1)"]
-      interval: 1s
-      timeout: 10s
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot_secure_password"]
+      interval: 2s
+      timeout: 5s
       retries: 30
-      start_period: 0s
+      start_period: 10s  # MySQL richiede un tempo iniziale di bootstrap alto
 
 networks:
   my-network:

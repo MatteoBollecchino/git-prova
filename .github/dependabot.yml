@@ -1,7 +1,7 @@
 version: 2
 updates:
   - package-ecosystem: "maven"
-    directory: "/com.examples.hellodocker"
+    directory: "/com.prova.app"
     schedule:
       interval: "daily"
   - package-ecosystem: "github-actions"
