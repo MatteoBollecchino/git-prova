@@ -21,7 +21,7 @@
     <mysql.testcontainer.version>1.21.4</mysql.testcontainer.version>
     <coveralls.version>5.0.0</coveralls.version>
     <surefire.report.version>3.6.3</surefire.report.version>
-    <jacoco.version>0.8.14</jacoco.version>
+    <jacoco.version>0.8.15</jacoco.version>
     
     <sonar.organization>matteobollecchino</sonar.organization>
   </properties>
