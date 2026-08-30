@@ -57,7 +57,7 @@ jobs:
         
     - name: Build and analyze
       run: > 
-		  mvn -B verify 
-          org.sonarsource.scanner.maven:sonar-maven-plugin:sonar 
-          -Dsonar.projectKey=MatteoBollecchino_git-prova
+        mvn -B verify
+        org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+        -Dsonar.projectKey=MatteoBollecchino_git-prova
       working-directory: ${{ env.workdir }}
