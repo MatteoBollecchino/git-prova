@@ -20,12 +20,12 @@ public class MemberTest {
 	}
 	
 	@Test
-	public void blanckMemberNameCreationTest() {
+	public void blanckMemberNameTest() {
 		assertThatThrownBy(
 				() -> new Member("", "Bollecchino", LocalDate.of(2003, 12, 29), LocalDate.of(2027, 9, 1))
 				)
 		.isInstanceOf(IllegalArgumentException.class)
-		.hasMessage("Member name is blanck or null");
+		.hasMessage("Member credential is blanck or null");
 	}
 	
 	@Test
@@ -34,25 +34,52 @@ public class MemberTest {
 				() -> new Member(null, "Bollecchino", LocalDate.of(2003, 12, 29), LocalDate.of(2027, 9, 1))
 				)
 		.isInstanceOf(IllegalArgumentException.class)
-		.hasMessage("Member name is blanck or null");
+		.hasMessage("Member credential is blanck or null");
 	}
 	
 	@Test
-	public void blanckMemberSurnameCreationTest() {
+	public void blanckMemberSurnameTest() {
 		assertThatThrownBy(
 				() -> new Member("Matteo", "", LocalDate.of(2003, 12, 29), LocalDate.of(2027, 9, 1))
 				)
 		.isInstanceOf(IllegalArgumentException.class)
-		.hasMessage("Member surname is blanck or null");
+		.hasMessage("Member credential is blanck or null");
 	}
 	
 	@Test
-	public void nullMemberSurnameCreationTest() {
+	public void nullMemberSurnameTest() {
 		assertThatThrownBy(
 				() -> new Member("Matteo", null, LocalDate.of(2003, 12, 29), LocalDate.of(2027, 9, 1))
 				)
 		.isInstanceOf(IllegalArgumentException.class)
-		.hasMessage("Member surname is blanck or null");
+		.hasMessage("Member credential is blanck or null");
+	}
+	
+	@Test
+	public void nullBirthdayTest() {
+		assertThatThrownBy(
+				() -> new Member("Matteo", "Bollecchino", null, LocalDate.of(2027, 9, 1))
+				)
+		.isInstanceOf(IllegalArgumentException.class)
+		.hasMessage("Birthday parameter cannot be null");
+	}
+	
+	@Test
+	public void incorrectExpiringDateTest() {
+		assertThatThrownBy(
+				() -> new Member("Matteo", "Bollecchino", LocalDate.of(2003, 12, 29), LocalDate.of(2026, 9, 1))
+				)
+		.isInstanceOf(IllegalArgumentException.class)
+		.hasMessage("Expiring Date has to be at least 1 year later the current date");
+	}
+	
+	@Test
+	public void nullExpiringDateTest() {
+		assertThatThrownBy(
+				() -> new Member("Matteo", "Bollecchino", LocalDate.of(2003, 12, 29), null)
+				)
+		.isInstanceOf(IllegalArgumentException.class)
+		.hasMessage("Expiring Date has to be at least 1 year later the current date");
 	}
 
 }

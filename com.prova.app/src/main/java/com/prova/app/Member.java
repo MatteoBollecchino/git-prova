@@ -10,19 +10,29 @@ public class Member {
 	private LocalDate expiringDate;
 
 	public Member(String name, String surname, LocalDate birthday, LocalDate expiringDate) {
-		if (name == null || name.isBlank()) {
-			throw new IllegalArgumentException("Member name is blanck or null");
-		}
+		checkCredentials(name);
 		this.name = name.toUpperCase();
 		
-		if (surname == null || surname.isBlank()) {
-			throw new IllegalArgumentException("Member surname is blanck or null");
-		}
+		checkCredentials(surname);
 		this.surname = surname.toUpperCase();
 		
+		if(birthday == null) {
+			throw new IllegalArgumentException("Birthday parameter cannot be null");
+		}
 		this.birthday = birthday;
 		
+		LocalDate current = LocalDate.now();
+		if(expiringDate == null || expiringDate.isBefore(
+				LocalDate.of(current.getYear()+1, current.getMonth(), current.getDayOfMonth()))) {
+			throw new IllegalArgumentException("Expiring Date has to be at least 1 year later the current date");
+		}
 		this.expiringDate = expiringDate;
+	}
+
+	private void checkCredentials(String credential) {
+		if (credential == null || credential.isBlank()) {
+			throw new IllegalArgumentException("Member credential is blanck or null");
+		}
 	}
 
 	String getName() {
