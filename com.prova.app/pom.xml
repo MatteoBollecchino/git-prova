@@ -4,7 +4,7 @@
 
   <groupId>com.prova</groupId>
   <artifactId>app</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>jar</packaging>
 
   <name>app</name>
@@ -22,6 +22,7 @@
     <coveralls.version>5.0.0</coveralls.version>
     <surefire.report.version>3.5.5</surefire.report.version>
     <jacoco.version>0.8.14</jacoco.version>
+    <assertj.version>3.27.7</assertj.version>
     
     <sonar.organization>matteobollecchino</sonar.organization>
   </properties>
@@ -55,6 +56,13 @@
       <groupId>org.testcontainers</groupId>
       <artifactId>mysql</artifactId>
       <version>${mysql.testcontainer.version}</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${assertj.version}</version>
       <scope>test</scope>
     </dependency>
     
