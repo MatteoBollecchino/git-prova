@@ -55,12 +55,12 @@ jobs:
       uses: actions/upload-artifact@v6
       if: ${{ always() }}
       with:
-        name: surefire-report-jdk-${{ matrix.java }}
+		name: surefire-report-jdk-${{ matrix.java }}
         path: '**/target/reports'
         
     - name: Build and analyze
-      run: | 
-      	mvn -B verify \
-      	org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-      	-Dsonar.projectKey=MatteoBollecchino_git-prova
+      run: > 
+		  mvn -B verify 
+          org.sonarsource.scanner.maven:sonar-maven-plugin:sonar 
+          -Dsonar.projectKey=MatteoBollecchino_git-prova
       working-directory: ${{ env.workdir }}
