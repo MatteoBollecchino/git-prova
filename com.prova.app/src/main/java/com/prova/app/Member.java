@@ -24,7 +24,7 @@ public class Member {
 		LocalDate current = LocalDate.now();
 		if(expiringDate == null || expiringDate.isBefore(
 				LocalDate.of(current.getYear()+1, current.getMonth(), current.getDayOfMonth()))) {
-			throw new IllegalArgumentException("Expiring Date has to be at least 1 year later the current date");
+			throw new IllegalArgumentException("Expiring Date has to be valid");
 		}
 		this.expiringDate = expiringDate;
 	}

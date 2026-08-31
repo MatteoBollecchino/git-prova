@@ -1,18 +1,23 @@
 package com.prova.app;
 
+import java.time.LocalDate;
+
 public class Subscription {
 
 	private int months;
-	private boolean active;
+	private LocalDate activationDate;
 	private Member member;
 
-	public Subscription(int months, boolean active, Member member) {
+	public Subscription(int months, LocalDate activationDate, Member member) {
 		if (months <= 0) {
 			throw new IllegalArgumentException("Months of a Subscription cannot be 0 or negative");
 		}
 		this.months = months;
 		
-		this.active = active;
+		if(activationDate == null || activationDate.isBefore(LocalDate.now())) {
+			throw new IllegalArgumentException("The activation date of the subscription must be a valid one");
+		}
+		this.activationDate = activationDate;
 		
 		if(member == null) {
 			throw new IllegalArgumentException("The member of the subscription must not be null");
@@ -25,8 +30,8 @@ public class Subscription {
 		return this.months;
 	}
 
-	boolean isActive() {
-		return active;
+	LocalDate isActive() {
+		return activationDate;
 	}
 
 	Member getMember() {

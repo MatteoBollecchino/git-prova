@@ -70,7 +70,7 @@ public class MemberTest {
 				() -> new Member("Matteo", "Bollecchino", LocalDate.of(2003, 12, 29), LocalDate.of(2026, 9, 1))
 				)
 		.isInstanceOf(IllegalArgumentException.class)
-		.hasMessage("Expiring Date has to be at least 1 year later the current date");
+		.hasMessage("Expiring Date has to be valid");
 	}
 	
 	@Test
@@ -79,7 +79,7 @@ public class MemberTest {
 				() -> new Member("Matteo", "Bollecchino", LocalDate.of(2003, 12, 29), null)
 				)
 		.isInstanceOf(IllegalArgumentException.class)
-		.hasMessage("Expiring Date has to be at least 1 year later the current date");
+		.hasMessage("Expiring Date has to be valid");
 	}
 
 }
