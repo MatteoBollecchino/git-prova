@@ -6,8 +6,9 @@ import java.util.Optional;
 
 public interface MemberRepository {
 	
-	public void save();
+	public void createNewMember();
 	
+	// Is it the correct choice to return an optional?
 	public Optional<Member> findMemberById(Long id);
 	
 	public List<Member> findAllMembers();
