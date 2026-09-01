@@ -72,5 +72,4 @@ public class MemberTest {
 		.isInstanceOf(IllegalArgumentException.class)
 		.hasMessage("Expiring Date has to be valid");
 	}
-
 }

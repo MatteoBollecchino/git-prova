@@ -1,12 +1,21 @@
 package com.prova.app.model;
 
 import java.time.LocalDate;
+import java.util.UUID;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
 
 public class Subscription {
 
 	private int months;
 	private LocalDate activationDate;
 	private Member member;
+	
+	@Id
+	@GeneratedValue (generator = "uuid2")
+	private UUID id;
 
 	public Subscription(int months, LocalDate activationDate, Member member) {
 		if (months <= 0) {
@@ -36,6 +45,10 @@ public class Subscription {
 
 	Member getMember() {
 		return member;
+	}
+
+	UUID getId() {
+		return id;
 	}
 
 }

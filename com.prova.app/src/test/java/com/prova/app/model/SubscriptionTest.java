@@ -1,10 +1,9 @@
 package com.prova.app.model;
 
-import static org.assertj.core.api.Assertions.assertThat; 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.time.LocalDate;
-
 import org.junit.Test;
 
 public class SubscriptionTest {
@@ -15,7 +14,7 @@ public class SubscriptionTest {
 
 	@Test
 	public void correctSubscriptionCreationTest() {
-		sub = new Subscription(1,testActivationDate , member);
+		sub = new Subscription(1,testActivationDate,member);
 		assertThat(sub.getMonths()).isEqualTo(1);
 		assertThat(sub.getActivationDate()).isAfter(LocalDate.now());
 		assertThat(sub.getMember()).isEqualTo(member);
@@ -52,5 +51,4 @@ public class SubscriptionTest {
 		.isInstanceOf(IllegalArgumentException.class)
 		.hasMessage("The activation date of the subscription must be a valid one");
 	}
-
 }

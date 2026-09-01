@@ -1,6 +1,10 @@
 package com.prova.app.model;
 
 import java.time.LocalDate;
+import java.util.UUID;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 public class Member {
 
@@ -8,7 +12,10 @@ public class Member {
 	private String surname;
 	private LocalDate birthday;
 	private LocalDate expiringDate;
-	private Long id;
+	
+	@Id
+	@GeneratedValue (generator = "uuid2")
+	private UUID id;
 	
 	public Member(String name, String surname, LocalDate birthday, LocalDate expiringDate) {
 		checkCredentials(name);
@@ -26,6 +33,7 @@ public class Member {
 			throw new IllegalArgumentException("Expiring Date has to be valid");
 		}
 		this.expiringDate = expiringDate;
+		
 	}
 
 	private void checkCredentials(String credential) {
@@ -50,7 +58,7 @@ public class Member {
 		return expiringDate;
 	}
 
-	Long getId() {
+	UUID getId() {
 		return id;
 	}
 
