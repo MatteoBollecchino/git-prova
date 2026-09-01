@@ -6,15 +6,14 @@ import java.util.Optional;
 
 public interface SubscriptionRepository {
 	
-	public void createNewSubscription();
+	void save(Subscription subscription);
 	
-	// Is it the correct choice to return an optional?
-	public Optional<Subscription> findSubscriptionById(Long id);
+	Optional<Subscription> findById(Long id);
 	
-	public List<Subscription> findAllSubscriptions();
+	List<Subscription> findAll();
 	
-	public void deleteSubscriptionById(Long id);
+	void deleteById(Long id);
 	
-	public void clear();
+	void clear();
 
 }
