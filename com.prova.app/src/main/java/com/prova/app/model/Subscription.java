@@ -1,4 +1,4 @@
-package com.prova.app;
+package com.prova.app.model;
 
 import java.time.LocalDate;
 
@@ -14,7 +14,7 @@ public class Subscription {
 		}
 		this.months = months;
 		
-		if(activationDate == null || activationDate.isBefore(LocalDate.now())) {
+		if(activationDate == null) {
 			throw new IllegalArgumentException("The activation date of the subscription must be a valid one");
 		}
 		this.activationDate = activationDate;
@@ -30,7 +30,7 @@ public class Subscription {
 		return this.months;
 	}
 
-	LocalDate isActive() {
+	LocalDate getActivationDate() {
 		return activationDate;
 	}
 

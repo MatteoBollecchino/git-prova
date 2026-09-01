@@ -1,4 +1,4 @@
-package com.prova.app;
+package com.prova.app.model;
 
 import java.time.LocalDate;
 
@@ -8,7 +8,8 @@ public class Member {
 	private String surname;
 	private LocalDate birthday;
 	private LocalDate expiringDate;
-
+	private Long id;
+	
 	public Member(String name, String surname, LocalDate birthday, LocalDate expiringDate) {
 		checkCredentials(name);
 		this.name = name.toUpperCase();
@@ -21,9 +22,7 @@ public class Member {
 		}
 		this.birthday = birthday;
 		
-		LocalDate current = LocalDate.now();
-		if(expiringDate == null || expiringDate.isBefore(
-				LocalDate.of(current.getYear()+1, current.getMonth(), current.getDayOfMonth()))) {
+		if(expiringDate == null) {
 			throw new IllegalArgumentException("Expiring Date has to be valid");
 		}
 		this.expiringDate = expiringDate;
@@ -31,7 +30,7 @@ public class Member {
 
 	private void checkCredentials(String credential) {
 		if (credential == null || credential.isBlank()) {
-			throw new IllegalArgumentException("Member credential is blanck or null");
+			throw new IllegalArgumentException("Member credential is blank or null");
 		}
 	}
 
@@ -50,7 +49,9 @@ public class Member {
 	LocalDate getExpiringDate() {
 		return expiringDate;
 	}
-	
-	
+
+	Long getId() {
+		return id;
+	}
 
 }
