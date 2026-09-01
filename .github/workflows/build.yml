@@ -15,7 +15,7 @@ jobs:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     strategy:
       matrix:
-        java: [17, 21]
+        java: [11, 21]
 
     name: Build with Java ${{ matrix.java }} on Linux
     steps:
