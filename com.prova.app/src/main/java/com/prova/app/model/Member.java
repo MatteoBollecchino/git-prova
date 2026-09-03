@@ -3,19 +3,25 @@ package com.prova.app.model;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table (name = "member")
 public class Member {
-
-	private String name;
-	private String surname;
-	private LocalDate birthday;
-	private LocalDate expiringDate;
 	
 	@Id
 	@GeneratedValue (generator = "uuid2")
 	private UUID id;
+
+	@Column (nullable = false)
+	private String name;
+	private String surname;
+	private LocalDate birthday;
+	private LocalDate expiringDate;
 	
 	public Member(String name, String surname, LocalDate birthday, LocalDate expiringDate) {
 		checkCredentials(name);
